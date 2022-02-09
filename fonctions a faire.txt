@@ -1,0 +1,19 @@
+Pour chaque min-projet, on vous demande de proposer d’abord :
+a.Un modèle conceptuel de données (MCD)
+
+b.Une traduction du MCD vers le modèle relationnel de données (les tables)
+
+c.Ecrire les fonctions suivantes :
+
+c.1. Une fonction qui prend en entrée un nom de table quelconque 
+et qui retourne le nombre d’enregistrements contenus dans la table.
+
+c.2. Une procédure qui permet de faire des insertions dans n’importe 
+quelle table à préciser. Ecrire le code nécessaire au contrôle des données à insérer.
+
+c.3. Une procédure qui permet de faire des modifications dans n’importe quelle table.
+ On réfléchira comme paramètres à préciser le nombre d’attributs concernés par la modification
+ ainsi que le nom de la table.
+
+
+Prévoir l’utilisation des exceptions.
