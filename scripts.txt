@@ -1,0 +1,93 @@
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+# Table: ETABLISSEMENT
+#------------------------------------------------------------
+
+CREATE TABLE ETABLISSEMENT(
+        id       Int  Auto_increment  NOT NULL ,
+        nom      Varchar (50) NOT NULL ,
+        localite Varchar (50) NOT NULL
+	,CONSTRAINT ETABLISSEMENT_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: DEPARTEMENT
+#------------------------------------------------------------
+
+CREATE TABLE DEPARTEMENT(
+        id               Int  Auto_increment  NOT NULL ,
+        nom              Varchar (50) NOT NULL ,
+        id_ETABLISSEMENT Int NOT NULL
+	,CONSTRAINT DEPARTEMENT_PK PRIMARY KEY (id)
+
+	,CONSTRAINT DEPARTEMENT_ETABLISSEMENT_FK FOREIGN KEY (id_ETABLISSEMENT) REFERENCES ETABLISSEMENT(id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: SEMINAIRE
+#------------------------------------------------------------
+
+CREATE TABLE SEMINAIRE(
+        id             Int  Auto_increment  NOT NULL ,
+        nom            Varchar (50) NOT NULL ,
+        etat           Varchar (50) NOT NULL ,
+        date_debut     Date NOT NULL ,
+        id_DEPARTEMENT Int NOT NULL
+	,CONSTRAINT SEMINAIRE_PK PRIMARY KEY (id)
+
+	,CONSTRAINT SEMINAIRE_DEPARTEMENT_FK FOREIGN KEY (id_DEPARTEMENT) REFERENCES DEPARTEMENT(id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: PERSONNE
+#------------------------------------------------------------
+
+CREATE TABLE PERSONNE(
+        id         Int  Auto_increment  NOT NULL ,
+        nom        Varchar (50) NOT NULL ,
+        prenom     Varchar (50) NOT NULL ,
+        tel        Int NOT NULL ,
+        specialite Varchar (50) NOT NULL ,
+        type       Varchar (50) NOT NULL
+	,CONSTRAINT PERSONNE_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: DOMAINE
+#------------------------------------------------------------
+
+CREATE TABLE DOMAINE(
+        id  Int  Auto_increment  NOT NULL ,
+        nom Varchar (50) NOT NULL
+	,CONSTRAINT DOMAINE_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: PRESENTATION
+#------------------------------------------------------------
+
+CREATE TABLE PRESENTATION(
+        id           Int  Auto_increment  NOT NULL ,
+        titre        Varchar (50) NOT NULL ,
+        sujet        Varchar (50) NOT NULL ,
+        date         Date NOT NULL ,
+        heure        Time NOT NULL ,
+        id_SEMINAIRE Int NOT NULL ,
+        id_PERSONNE  Int NOT NULL ,
+        id_DOMAINE   Int NOT NULL
+	,CONSTRAINT PRESENTATION_PK PRIMARY KEY (id)
+
+	,CONSTRAINT PRESENTATION_SEMINAIRE_FK FOREIGN KEY (id_SEMINAIRE) REFERENCES SEMINAIRE(id)
+	,CONSTRAINT PRESENTATION_PERSONNE0_FK FOREIGN KEY (id_PERSONNE) REFERENCES PERSONNE(id)
+	,CONSTRAINT PRESENTATION_DOMAINE1_FK FOREIGN KEY (id_DOMAINE) REFERENCES DOMAINE(id)
+)ENGINE=InnoDB;
+
