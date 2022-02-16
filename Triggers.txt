@@ -1,4 +1,8 @@
---1 Impossible d'organiser plus de 3 seminaires le meme jour. ok
+--1 Impossible d'organiser plus de 3 presentation le meme jour. ok
+
+
+
+
 
 --2 -Le nombre de participants d'un seminaire est inferieur ou egale au nombre de places max. ok
 

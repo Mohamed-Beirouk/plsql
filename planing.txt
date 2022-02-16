@@ -15,3 +15,6 @@ Chaque département d’un établissement d’enseignement supérieur organise s
 
 On doit pouvoir garder la trace de tous les séminaires passés et aussi connaitre les séminaires à venir par département ou par établissement.
 
+SELECT COLUMN_NAME
+FROM ALL_TAB_COLUMNS
+WHERE TABLE_NAME = 'MYTABLE' AND OWNER = 'MYSCHEMA'
